@@ -3,6 +3,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
 
 import '../../../values.dart';
 
@@ -68,8 +69,10 @@ class SearchEventContainer extends StatelessWidget {
                           ),
                         ),
                       ),
-                      placeholder: (context, url) =>
-                          const CircularProgressIndicator(),
+                      placeholder: (context, url) => Lottie.asset(
+                          circularLoadingAnimation,
+                          height: 60,
+                          width: 60),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),
                     ),

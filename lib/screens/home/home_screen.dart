@@ -9,6 +9,7 @@ import 'package:sde_assignment/screens/search/search_screen.dart';
 import 'package:sde_assignment/values.dart';
 
 import '../../logic/cubits/event_cubit/event_state.dart';
+import 'package:lottie/lottie.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -26,8 +27,8 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(child:
             BlocBuilder<EventCubit, EventState>(builder: (context, state) {
           if (state is EventLoadingState) {
-            return const Center(
-              child: CircularProgressIndicator(),
+            return Center(
+              child: Lottie.asset(loadingAnimation, height: 200, width: 200),
             );
           }
 
@@ -84,8 +85,8 @@ class _HomeScreenState extends State<HomeScreen> {
             );
           }
 
-          return const Center(
-            child: Text("An error occured!"),
+          return Center(
+            child: Lottie.asset(errorAnimation, height: 200, width: 200),
           );
         })));
   }
@@ -96,7 +97,7 @@ AppBar detailsAppBar(context) {
     backgroundColor: Colors.white,
     elevation: 0,
     title: const Padding(
-      padding: EdgeInsets.fromLTRB(15, 0, 0, 10),
+      padding: EdgeInsets.fromLTRB(15, 10, 0, 10),
       child: Text(
         'Events',
         style: TextStyle(

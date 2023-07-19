@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 const primarycolor = Color(0xff120D26);
+const String loadingAnimation = "assets/animations/loading.json";
+const String circularLoadingAnimation =
+    "assets/animations/circularloading.json";
+const String errorAnimation = "assets/animations/error.json";
 List weekday = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"];
 List months = [
   "Jan",

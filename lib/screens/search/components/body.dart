@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:lottie/lottie.dart';
 import 'package:sde_assignment/data/models/all_event_model.dart';
 import 'package:sde_assignment/screens/search/components/eventbox.dart';
 
 import '../../../logic/cubits/event_cubit/event_cubit.dart';
 import '../../../logic/cubits/event_cubit/event_state.dart';
+import '../../../values.dart';
 import '../../event_detail/detail_screen.dart';
 
 class Body extends StatefulWidget {
@@ -31,8 +33,8 @@ class _BodyState extends State<Body> {
     return SafeArea(
         child: BlocBuilder<EventCubit, EventState>(builder: (context, state) {
       if (state is EventLoadingState) {
-        return const Center(
-          child: CircularProgressIndicator(),
+        return Center(
+          child: Lottie.asset(loadingAnimation, height: 200, width: 200),
         );
       }
 
@@ -46,8 +48,8 @@ class _BodyState extends State<Body> {
         );
       }
 
-      return const Center(
-        child: Text("An error occured!"),
+      return Center(
+        child: Lottie.asset(errorAnimation, height: 200, width: 200),
       );
     }));
   }

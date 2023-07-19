@@ -2,6 +2,9 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:intl/intl.dart';
+import 'package:lottie/lottie.dart';
+
+import '../../values.dart';
 
 class EventContainer extends StatelessWidget {
   String iconLink;
@@ -64,8 +67,10 @@ class EventContainer extends StatelessWidget {
                           ),
                         ),
                       ),
-                      placeholder: (context, url) =>
-                          const CircularProgressIndicator(),
+                      placeholder: (context, url) => Lottie.asset(
+                          circularLoadingAnimation,
+                          height: 60,
+                          width: 60),
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),
                     ),
@@ -111,7 +116,7 @@ class EventContainer extends StatelessWidget {
                             "assets/icons/map-pin.svg",
                           ),
                           Text(
-                            ' $venue • $city, $country '.substring(0, 33),
+                            ' $venue • $city, $country '.substring(0, 32),
                             style: const TextStyle(
                               color: Color(0xFF747688),
                               fontSize: 13,
